@@ -8,86 +8,90 @@
 
 <!--datocms-autoinclude-header end-->
 
-# Next.js Starter Kit
+# Verkefni 5: Next.js og CMS kerfi
 
-This project aims to be a great starting point for your Next.js projects that need to interact with DatoCMS.
+## Um verkefnið
 
-- 🔍 **Fully commented code** — Every file is commented and explained in detail, it will be impossible to get lost!
-- 💯 **100% TypeScript** — Thanks to [gql.tada](https://gql-tada.0no.co/) every GraphQL query is fully typed, and your IDE will help you complete the GraphQL queries.
-- 🛠️ **Minimal boilerplate** — The project is minimal and exposes only what is necessary to get started, without complicated models that need to be removed.
-- 🚫 **Zero CSS** — There is only one CSS import, which you can remove to use your preferred CSS tool.
-- 📝 **Full support for Next.js Draft Mode** — Your editors can always view the latest draft version of the content.
-- 🧩 **Plugin ready** — Support for the fantastic plugins [Web Previews](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-web-previews) and [SEO/Readability Analysis](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-seo-readability-analysis).
-- 🔄 **DatoCMS's Real-time Updates API** — Your editors can see updated content instantly as soon as you save a new version on DatoCMS.
-- 🗑️ **Cache invalidation** — No need to re-deploy your website after each modification to your content, as it will be automatically updated thanks to DatoCMS webhooks.
-- 🌐 **SEO Metadata** — Full integration between Next.js and the SEO settings coming from DatoCMS.
+Þetta verkefni er unnið sem hluti af áfanganum Vefforritun 2, 2025. Verkefnið notast við Next.js framenda fyrir DatoCMS sem er headless CMS kerfi.
 
-## How to use
+## Uppsetning
 
-### Quick start
+### Tæknileg atriði
 
-1. [Create an account on DatoCMS](https://datocms.com).
+- **Next.js**: Framework sem byggir á React
+- **TypeScript**: Týpaðar skrár til að minnka líkur á villum
+- **App router**: Notað til að setja upp leiðarkerfi
+- **Sass**: Fyrir CSS stílana
+- **DatoCMS**: Headless CMS kerfi til að halda utan um og breyta efni
 
-2. Make sure that you have set up the [Github integration on Vercel](https://vercel.com/docs/git/vercel-for-github).
+### Virkni síðunnar
 
-3. Let DatoCMS set everything up for you clicking this button below:
+- Forsíða með efni sem er hægt að breyta í DatoCMS
+- Spurningalisti sem tekur gögn úr CMS
+- Stök síða fyrir hverja spurningu
 
-[![Deploy with DatoCMS](https://dashboard.datocms.com/deploy/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms%2Fnextjs-starter-kit%3Amain)
+## Skipulag verkefnis
 
-### Local setup
+- **/src/app**: Next.js framenda uppbygging
+- **/src/styles**: Sass skrár fyrir stílana
+- **/src/lib/datocms**: API tengingar við DatoCMS
 
-Once the setup of the project and repo is done, clone the repo locally.
+## Hvernig á að keyra verkefnið
 
-#### Set up environment variables
+1. Klóna verkefnið:
+   ```
+   git clone [GitHub repo URL]
+   ```
 
-Copy the sample .env file:
+2. Setja upp pakkana:
+   ```
+   npm install
+   ```
 
-```bash
-cp .env.local.example .env.local
-```
+3. Búa til `.env.local` skrá með DatoCMS aðgangslyklunum:
+   ```
+   DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN=[your-api-token]
+   ```
 
-In your DatoCMS' project, go to the **Settings** menu at the top and click **API tokens**.
+4. Keyra verkefnið:
+   ```
+   npm run dev
+   ```
 
-Copy the values of the following tokens into the specified environment variable:
+## DatoCMS uppsetning
 
-- `DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN`: CDA Only (Published)
-- `DATOCMS_DRAFT_CONTENT_CDA_TOKEN`: CDA Only (Draft)
-- `DATOCMS_CMA_TOKEN`: CMA Only (Admin)
+Í DatoCMS þarf að búa til eftirfarandi líkön:
 
-Then set `SECRET_API_TOKEN` as a sicure string (you can use `openssl rand -hex 32` or any other cryptographically-secure random string generator). It will be used to safeguard all route handlers from incoming requests from untrusted sources:
+1. **HomePage** með:
+   - title (Single-line string)
+   - description (Markdown)
+   - welcomeMessage (Markdown)
 
-#### Run your project locally
+2. **Question** með:
+   - questionTitle (Single-line string)
+   - spurning (Markdown)
+   - authors (Tengingar við höfunda)
 
-```bash
-npm install
-npm run dev
-```
+3. **Author** með:
+   - name (Single-line string)
+   - uppahaldsspurningaflokkur (Tengingar við flokka)
 
-Your website should be up and running on [http://localhost:3000](http://localhost:3000)!
+## Hýsing
 
-## VS Code
+Verkefnið er hýst á Vercel og tengist við GitHub repository verkefnisins.
 
-It is highly recommended to follow [these instructions](https://gql-tada.0no.co/get-started/installation#vscode-setup) for an optimal experience with Visual Studio Code, including features like diagnostics, auto-completions, and type hovers for GraphQL.
+## Á að gera
 
-## Updating the GraphQL schema
+- [x] Next.js uppsetning með TypeScript, app router og Sass
+- [x] Forsíða með breytanlegu efni
+- [x] Spurningakerfi með lista og stökum síðum
+- [x] Tengingar við DatoCMS
+- [x] Stílar með Sass
+- [x] Hýsing á Vercel
 
-When the DatoCMS schema, which includes various models and fields, undergoes any updates or modifications, it is essential to ensure that these changes are properly reflected in your local development environment. To accomplish this, you should locally run the following command:
+## Höfundur
 
-```
-npm run generate-schema
-```
-
-Executing this task will automatically update the `schema.graphql` file for you. This crucial step ensures that gql.tada will have access to the most current and accurate version of the GraphQL schema, allowing your application to function correctly with the latest data structures and relationships defined within your DatoCMS setup.
-
-## Next 14? But I want Next 15!
-
-[Next 15 requires React 19](https://nextjs.org/docs/app/building-your-application/upgrading/version-15#react-19), which is currently in Release Candidate status as of today. Vercel aims to incorporate cutting-edge features in their releases, as this aligns with their vision for Next.js. To ensure maximum "production readiness," we advise exercising caution and waiting a bit longer before recommending that our users transition to React 19.
-
-If you are inclined to experiment with the latest developments, you are welcome to begin with this starter and execute the codemods as outlined in the [Next 14 to 15 migration guide](https://nextjs.org/docs/app/building-your-application/upgrading/version-15#upgrading-from-14-to-15): we have tested this approach, and everything appears to function properly.
-
-```
-npx @next/codemod@canary upgrade latest
-```
+[Þitt nafn]
 
 ## <!--datocms-autoinclude-footer start-->
 
