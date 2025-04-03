@@ -39,16 +39,19 @@
 ## Hvernig á að keyra verkefnið
 
 1. Klóna verkefnið:
+
    ```
    git clone [GitHub repo URL]
    ```
 
 2. Setja upp pakkana:
+
    ```
    npm install
    ```
 
 3. Búa til `.env.local` skrá með DatoCMS aðgangslyklunum:
+
    ```
    DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN=[your-api-token]
    ```
@@ -63,11 +66,13 @@
 Í DatoCMS þarf að búa til eftirfarandi líkön:
 
 1. **HomePage** með:
+
    - title (Single-line string)
    - description (Markdown)
    - welcomeMessage (Markdown)
 
 2. **Question** með:
+
    - questionTitle (Single-line string)
    - spurning (Markdown)
    - authors (Tengingar við höfunda)

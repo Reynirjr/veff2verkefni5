@@ -18,7 +18,7 @@
   font-weight: bold;
   color: #0070f3;
   text-decoration: none;
-  
+
   &:hover {
     text-decoration: none;
   }
@@ -28,13 +28,13 @@
   display: flex;
   list-style: none;
   gap: 2rem;
-  
+
   li a {
     color: #333;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
-    
+
     &:hover {
       color: #0070f3;
     }

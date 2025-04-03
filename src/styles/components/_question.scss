@@ -1,26 +1,26 @@
 .question {
   margin-bottom: 2rem;
-  
+
   &__title {
     font-size: 1.8rem;
     color: $primary-color;
     margin-bottom: 1rem;
   }
-  
+
   &__content {
     background-color: white;
     padding: 1.5rem;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   &__authors {
     font-style: italic;
     color: #666;
     margin-top: 1rem;
     font-size: 0.9rem;
   }
-  
+
   &__back-link {
     display: inline-block;
     margin-top: 1.5rem;

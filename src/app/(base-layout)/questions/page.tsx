@@ -11,30 +11,29 @@ export const metadata = {
 
 const query = graphql(
   /* GraphQL */ `
-  query Questions {
-    allQuestions{
-      questionTitle
-      id
-      authors{
-        name
+    query Questions {
+      allQuestions {
+        questionTitle
+        id
+        authors {
+          name
+        }
       }
     }
-    
-  }
   `,
-[],
+  [],
 );
 
 export default async function QuestionsPage() {
-   const { allQuestions } = await executeQuery(query, {});
+  const { allQuestions } = await executeQuery(query, {});
 
-    revalidateTag('datocms');
-   
-    console.log(allQuestions);
-  
-    if (!allQuestions) {
-      notFound();
-    }
+  revalidateTag('datocms');
+
+  console.log(allQuestions);
+
+  if (!allQuestions) {
+    notFound();
+  }
   return (
     <>
       <h3>Hér eru spurningar! Veldu eina of farðu að svara</h3>
