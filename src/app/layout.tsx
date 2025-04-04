@@ -4,7 +4,6 @@ import { executeQuery } from '@/lib/datocms/executeQuery';
 import { graphql } from '@/lib/datocms/graphql';
 import { draftMode } from 'next/headers';
 import { toNextMetadata } from 'react-datocms';
-import Navbar from './Navbar';
 
 import './global.css';
 import '@/styles/globals.scss';
