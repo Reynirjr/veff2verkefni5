@@ -100,7 +100,7 @@ export default async function Page() {
         <h2 className="card-title">Velkominn á spurningasíðuna!</h2>
         <p>Hér getur þú fundið ýmsar spurningar og svör um fjölbreytt efni.</p>
       </div>
-      
+
       <div className="card secondary">
         <h3 className="card-title">Skoðaðu flokkana okkar</h3>
         <p>Við höfum flokkað spurningarnar svo þú getir auðveldlega fundið það sem þig vantar.</p>
@@ -108,7 +108,7 @@ export default async function Page() {
           Sjá alla flokka
         </Link>
       </div>
-      
+
       <div className="gradient-text bounce">Skemmtilegar spurningar bíða þín!</div>
     </>
   );

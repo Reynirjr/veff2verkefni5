@@ -38,9 +38,7 @@ export default function RootLayout({
         <header className="text-center">
           <h1>Verkefni 5</h1>
         </header>
-        <main className="container">
-          {children}
-        </main>
+        <main className="container">{children}</main>
       </body>
     </html>
   );
