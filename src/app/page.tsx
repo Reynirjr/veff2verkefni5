@@ -82,66 +82,58 @@ export default async function Page() {
       <Link href="/questions">Skoða spurningar</Link>
       <StructuredText
         data={page.structuredText}
-        customNodeRules={
-          [
-            renderNodeRule(isCode, ({ node, key }) => <Code key={key} node={node} />),
-            renderNodeRule(isHeading, ({ node, key, children }) => (
-              <HeadingWithAnchorLink node={node} key={key}>
-                {children}
-              </HeadingWithAnchorLink>
-            )),
-          ]
-        }
-        renderBlock={
-          ({ record }) => {
-            switch (record.__typename) {
-              case 'VideoBlockRecord': {
-                return <VideoBlock data={record} />;
-              }
-              case 'ImageBlockRecord': {
-                return <ImageBlock data={record} />;
-              }
-              case 'ImageGalleryBlockRecord': {
-                return <ImageGalleryBlock data={record} />;
-              }
-              default: {
-                return null;
-              }
+        customNodeRules={[
+          renderNodeRule(isCode, ({ node, key }) => <Code key={key} node={node} />),
+          renderNodeRule(isHeading, ({ node, key, children }) => (
+            <HeadingWithAnchorLink node={node} key={key}>
+              {children}
+            </HeadingWithAnchorLink>
+          )),
+        ]}
+        renderBlock={({ record }) => {
+          switch (record.__typename) {
+            case 'VideoBlockRecord': {
+              return <VideoBlock data={record} />;
+            }
+            case 'ImageBlockRecord': {
+              return <ImageBlock data={record} />;
+            }
+            case 'ImageGalleryBlockRecord': {
+              return <ImageGalleryBlock data={record} />;
+            }
+            default: {
+              return null;
             }
           }
-        }
-        renderInlineRecord={
-          ({ record }) => {
-            switch (record.__typename) {
-              case 'PageRecord': {
-                return (
-                  <Link href="/" className="pill">
-                    {record.title}
-                  </Link>
-                );
-              }
-              default: {
-                return null;
-              }
+        }}
+        renderInlineRecord={({ record }) => {
+          switch (record.__typename) {
+            case 'PageRecord': {
+              return (
+                <Link href="/" className="pill">
+                  {record.title}
+                </Link>
+              );
+            }
+            default: {
+              return null;
             }
           }
-        }
-        renderLinkToRecord={
-          ({ transformedMeta, record, children }) => {
-            switch (record.__typename) {
-              case 'PageRecord': {
-                return (
-                  <Link {...transformedMeta} href="/">
-                    {children}
-                  </Link>
-                );
-              }
-              default: {
-                return null;
-              }
+        }}
+        renderLinkToRecord={({ transformedMeta, record, children }) => {
+          switch (record.__typename) {
+            case 'PageRecord': {
+              return (
+                <Link {...transformedMeta} href="/">
+                  {children}
+                </Link>
+              );
+            }
+            default: {
+              return null;
             }
           }
-        }
+        }}
       />
       <footer>Gert af mér (í Flýti)</footer>
     </>
