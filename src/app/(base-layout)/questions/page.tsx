@@ -24,7 +24,7 @@ interface QuestionsQueryResult {
 
 const query = graphql(
   /* GraphQL */ `
-     query GetQuestions {
+    query GetQuestions {
       allQuestions {
         id
         questiontitle
@@ -46,7 +46,7 @@ const query = graphql(
 );
 
 export default async function QuestionsPage() {
-  const { allQuestions } = await executeQuery(query, {}) as QuestionsQueryResult;
+  const { allQuestions } = (await executeQuery(query, {})) as QuestionsQueryResult;
 
   revalidateTag('datocms');
 
@@ -67,7 +67,6 @@ export default async function QuestionsPage() {
         <ul>
           {allQuestions.map((question) => (
             <li key={question.id}>
-              
               <Link href={`/questions/${question.id}`}>{question.questiontitle}</Link>
             </li>
           ))}

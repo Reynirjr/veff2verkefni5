@@ -57,7 +57,7 @@ export default async function QuestionByIdPage({ params }: { params: { id: strin
       <h2>{question.questiontitle}</h2>
       <p>{question.spurning}</p>
       {question.authors?.length > 0 && (
-        <p>Höfundur: {question.authors.map(a => a.name).join(', ')}</p>
+        <p>Höfundur: {question.authors.map((a) => a.name).join(', ')}</p>
       )}
       {question.svar && <p>Svar: {question.svar.svarid}</p>}
       {question.flokkur && <p>Flokkur: {question.flokkur.title}</p>}

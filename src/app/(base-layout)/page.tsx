@@ -9,9 +9,7 @@ export default function Page() {
     <>
       <h3>Hæ Tommi </h3>
       <ul>
-        <Link href="/categories">
-          Flokkar
-        </Link>
+        <Link href="/categories">Flokkar</Link>
       </ul>
     </>
   );

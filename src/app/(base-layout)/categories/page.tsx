@@ -19,8 +19,6 @@ export const metadata = {
   title: 'Spurningarleikur Benna',
 };
 
-
-
 const query = graphql(
   /* GraphQL */ `
     query Questioncategory {
@@ -44,7 +42,7 @@ export default async function CategoriesPage() {
       slug: string;
     }[];
   };
-  
+
   const { allQuestioncategories } = result;
 
   console.log(allQuestioncategories);
@@ -58,12 +56,12 @@ export default async function CategoriesPage() {
       <h3>Veldu pliz</h3>
 
       <ul>
-      {allQuestioncategories.map((cat) => (
-        <li key={cat.slug}>
-          <Link href={`/categories/${cat.slug}`}>{cat.title}</Link>
-        </li>
-      ))}
-    </ul>
+        {allQuestioncategories.map((cat) => (
+          <li key={cat.slug}>
+            <Link href={`/categories/${cat.slug}`}>{cat.title}</Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
