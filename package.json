@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && prettier --check .",
-    "generate-schema": "dotenv -c -- bash -c 'gql.tada generate schema https://graphql.datocms.com --header \"X-Exclude-Invalid: true\" --header \"Authorization: $DATOCMS_PUBLISHED_CONTENT_CDA_TOKEN\"'",
+    "generate-schema": "bash scripts/generate-schema.sh",
     "format": "npx prettier . --write",
     "prepare": "npx simple-git-hooks && npm run generate-schema"
   },
@@ -24,6 +24,7 @@
     "react": "^18",
     "react-datocms": "^7.2.2",
     "react-dom": "^18",
+    "react-markdown": "^10.1.0",
     "serialize-error": "^11.0.3"
   },
   "devDependencies": {
