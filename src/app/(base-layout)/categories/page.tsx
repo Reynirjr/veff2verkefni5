@@ -45,23 +45,25 @@ export default async function CategoriesPage() {
 
   const { allQuestioncategories } = result;
 
-  console.log(allQuestioncategories);
-
   if (!allQuestioncategories) {
     notFound();
   }
 
   return (
     <>
-      <h3>Veldu pliz</h3>
+      <h2 className="gradient-text">Veldu flokk</h2>
+      <p>Hér getur þú fundið spurningar flokkaðar eftir efni.</p>
 
-      <ul>
+      <div className="categories-grid">
         {allQuestioncategories.map((cat) => (
-          <li key={cat.slug}>
-            <Link href={`/categories/${cat.slug}`}>{cat.title}</Link>
-          </li>
+          <Link href={`/categories/${cat.slug}`} key={cat.slug}>
+            <div className="card accent">
+              <h3>{cat.title}</h3>
+              <span className="badge primary">Sjá spurningar</span>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

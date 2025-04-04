@@ -6,6 +6,7 @@ import { draftMode } from 'next/headers';
 import { toNextMetadata } from 'react-datocms';
 
 import './global.css';
+import '../styles/globals.scss';
 
 const query = graphql(
   /* GraphQL */ `
@@ -34,10 +35,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
+        <header className="text-center">
           <h1>Verkefni 5</h1>
         </header>
-        <main>{children}</main>
+        <main className="container">
+          {children}
+        </main>
       </body>
     </html>
   );
